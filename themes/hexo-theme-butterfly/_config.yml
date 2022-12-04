@@ -7,6 +7,9 @@ menu:
   归档: /archives/ || icon-guidang || faa-tada
   标签: /tags/ || icon-sekuaibiaoqian || faa-tada
   分类: /categories/ || icon-fenlei || faa-tada
+  List||fas fa-list:
+    Music: /music/ || fas fa-music
+    Movie: /movies/ || fas fa-video
   友链: /link/ || icon-friends || faa-tada
   关于: /about/ || icon-about || faa-tada
 
@@ -151,7 +154,7 @@ post_meta:
 # wordcount (字數統計)
 # see https://butterfly.js.org/posts/ceeb73f/#字數統計
 wordcount:
-  enable: true
+  enable: false
   post_wordcount: true
   min2read: true
   total_wordcount: true
@@ -205,7 +208,7 @@ reward:
 # Post edit
 # Easily browse and edit blog source code online.
 post_edit:
-  enable: true
+  enable: false
   # url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
   # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
   url:

@@ -6,6 +6,7 @@ swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-wy89op.jp
 cover: https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-wy89op.jpg # 该文章图片，可以是本地目录下图片也可以是http://xxx图片
 categories: JUC # 分类
 tags: [ 异步 ] #标签
+top: true
 ---
 
 # CompletableFuture详解
