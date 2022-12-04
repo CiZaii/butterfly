@@ -127,33 +127,6 @@ live2d:
     vOffset: -20
   mobile:
     show: false
-magnet:
-  enable: true
-  priority: 1
-  enable_page: /
-  type: categories
-  devide: 2
-  display:
-    - name: 开源
-      display_name: 开源
-      icon: 📚
-    - name: 技巧
-      display_name: 技巧
-      icon: 🎮
-    - name: 源码
-      display_name: SpringSecurity认证授权源码
-      icon: 🐱‍👓
-  color_setting:
-    text_color: black
-    text_hover_color: white
-    background_color: "#f2f2f2"
-    background_hover_color: "#b30070"
-  layout:
-    type: id
-    name: recent-posts
-    index: 0
-  temple_html: '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet">${temple_html_item}</div></div>'
-  plus_style: ""
 butterfly_article_double_row:
   enable: true
 wowjs:
