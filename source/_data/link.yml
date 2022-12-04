@@ -1,28 +1,17 @@
-- class_name: 1.友情链接
+- class_name: 1.技术支持
+  class_desc: 本网站的搭建由以下开源作者提供技术支持
+  link_list:
+    - name: Hexo
+      link: https://hexo.io/zh-cn/
+      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+      descr: 快速、简单且强大的网志框架
+      siteshot: https://source.fomal.cc/siteshot/hexo.io.jpg
+
+- class_name: 2.友情链接
   class_desc: 一些好朋友~~
   link_list:
-    - name: 世纪末的架构师
-      link: http://www.zrkizzy.com
-      avatar: https://z3.ax1x.com/2021/06/29/RdO4fO.jpg
-      descr: 疯狂的热爱夹带着文雅
-      siteshot: https://blog.mylady.top/static/books/2022/5/2022-05-07_164031.png
-    - name: BNTang
-      link: https://www.cnblogs.com/BNTang
-      avatar: https://xiaohuihuit.github.io/images/avatar.jpg
-      descr: IT技术类博客
-      siteshot: https://zangzang.oss-cn-beijing.aliyuncs.com/img/20221202093857.png
-    - name: 超、伟博客
-      link: https://www.macw.cc/
-      avatar: https://file.henaumcw.top/avatar/avator.jpg
-      descr: 问渠哪得清如许，唯有学习可破局
-      siteshot: https://tva4.sinaimg.cn/large/9bd9b167gy1g2rn8ha2csj21hc0u04qr.jpg
-    - name: 纯情阿丁-丁启栋Blog
-      link: https://dingqidong.com/
-      avatar: https://oss-api.dingqidong.com/blog/config/2022-10-16T07%3A31%3A19.483509a43d9b1f3877cb0e42283cb2d70fa570.jpg
-      descr: 阿丁在Coding，等你成为我的朋友！
-      siteshot: https://oss-api.dingqidong.com/blog/config/da59d2115a3b643d81d6d855eef3df7a.jpg
-    - name: 八尺妖剑
-      link: https://www.waer.ltd
-      avatar: https://images.waer.ltd/img/bachiyaojian.jpeg
-      descr: 惟有热爱，可抵岁月漫长!
-      siteshot: https://images.waer.ltd/img/纯白.png
+    - name: Fomalhaut🥝
+      link: https://fomal.cc/
+      avatar: /assets/head.jpg
+      descr: Future is now 🍭🍭🍭
+      siteshot: https://source.fomal.cc/siteshot/www.fomal.cn.jpg
