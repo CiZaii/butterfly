@@ -5,7 +5,7 @@
 # Site
 title: Cizai🥝
 subtitle: '欢迎'
-description: '欢迎'
+description: '往日不可谏，来者犹可追'
 keywords:
 author: Cizai🥝
 language: en
@@ -110,28 +110,10 @@ search:
   field: post
   content: true
 
-# Live2D
-## https://github.com/EYHN/hexo-helper-live2d
-live2d:
-  enable: true
-  scriptFrom: local # 默认
-  tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中
-  debug: false # 调试, 是否在控制台输出日志
-  model:
-    use: live2d-widget-model-shizuku  #模型选择
-  display:
-    position: right  #模型位置
-    width: 150       #模型宽度
-    height: 300      #模型高度
-    hOffset: 20
-    vOffset: -20
-  mobile:
-    show: false
 butterfly_article_double_row:
   enable: true
 wowjs:
   enable: true #控制动画开关。true是打开，false是关闭
-  priority: 10 #过滤器优先级
   mobile: false #移动端是否启用，默认移动端禁用
   animateitem:
     - class: recent-post-item #必填项，需要添加动画的元素的class
@@ -148,7 +130,6 @@ wowjs:
 # hexo-filter-gitcalendar
 gitcalendar:
   enable: true # 开关
-  priority: 5 #过滤器优先权
   enable_page: / # 应用页面
   # butterfly挂载容器
   layout: # 挂载容器类型
@@ -172,7 +153,6 @@ gitcalendar:
 # see https://akilar.top/posts/615e2dec/
 tag_plugins:
   enable: true # 开关
-  priority: 5 #过滤器优先权
   issues: false #issues标签依赖注入开关
   link:
     placeholder: /img/link.png #link_card标签默认的图标图片
@@ -183,3 +163,27 @@ tag_plugins:
     iconfont: //at.alicdn.com/t/font_2032782_8d5kxvn09md.js #参看https://akilar.top/posts/d2ebecef/
     carousel: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js
     tag_plugins_css: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css
+# Live2D
+## https://github.com/EYHN/hexo-helper-live2d
+live2d:
+  enable: true #开关插件版看板娘
+  scriptFrom: local # 默认
+  pluginRootPath: live2dw/ # 插件在站点上的根目录(相对路径)
+  pluginJsPath: lib/ # 脚本文件相对与插件根目录路径
+  pluginModelPath: assets/ # 模型文件相对与插件根目录路径
+  # scriptFrom: jsdelivr # jsdelivr CDN
+  # scriptFrom: unpkg # unpkg CDN
+  # scriptFrom: https://npm.elemecdn.com/live2d-widget@3.x/lib/L2Dwidget.min.js # 你的自定义 url
+  tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中
+  debug: false # 调试, 是否在控制台输出日志
+  model:
+    use: https://npm.elemecdn.com/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json # npm-module package name
+    # use: wanko # 博客根目录/live2d_models/ 下的目录名
+    # use: ./wives/wanko # 相对于博客根目录的路径
+    # use: https://npm.elemecdn.com/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json # 你的自定义 url
+  display:
+    position: right #控制看板娘位置
+    width: 150 #控制看板娘大小
+    height: 300 #控制看板娘大小
+  mobile:
+    show: true # 手机中是否展示

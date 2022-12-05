@@ -4,3 +4,20 @@ if theme.aside.card_announcement.enable
       i.fas.fa-bullhorn.fa-shake
       span= _p('aside.card_announcement')
     .announcement_content!= theme.aside.card_announcement.content
+    .xpand(style='height:200px;')
+      canvas.illo(width='800' height='800' style='max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;')
+  script(src='https://npm.elemecdn.com/ethan4116-blog/lib/js/other/two-people/twopeople1.js')
+  script(src='https://npm.elemecdn.com/ethan4116-blog/lib/js/other/two-people/zdog.dist.js')
+  script#rendered-js(src='https://npm.elemecdn.com/ethan4116-blog/lib/js/other/two-people/twopeople.js')
+  style.
+   .card-widget.card-announcement {
+   margin: 0;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   }
+   canvas {
+   display: block;
+   margin: 0 auto;
+   cursor: move;
+   }

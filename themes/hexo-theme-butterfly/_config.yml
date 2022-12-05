@@ -13,7 +13,7 @@ menu:
 # Code Blocks (代碼相關)
 # --------------------------------------
 
-highlight_theme: light #  darker / pale night / light / ocean / mac / mac light / false
+highlight_theme: mac #  darker / pale night / light / ocean / mac / mac light / false
 highlight_copy: true # copy button
 highlight_lang: true # show the code language
 highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
@@ -685,7 +685,7 @@ aside:
       link: https://gitee.com/ZVerify
   card_announcement:
     enable: true
-    content: 往日不可谏，来者犹可追
+    content: 我是一名刚刚升入大四的学生，致力于从事Java行业，目前刚刚裸辞掉工作，现在在家准备春招,在业余时间写一写开源,可以很骄傲的说我是Stream-Query的Committer,热衷于open source，我的生活很规律，除了IDEA,Gitee还有乒乓球就没有什么事情了。每天学习完晚上会锻炼15分钟然后写一篇博客再洗个热水澡睡觉
   card_recent_post:
     enable: false
     limit: 5 # if set 0 will show all
@@ -893,6 +893,7 @@ inject:
     - <link rel="stylesheet" href="/css/universe.css">
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'">
     - <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3807420_xi193ookxk8.css">
+
   bottom:
     - <script defer src="/js/light.js"></script> # 霓虹灯(必须defer否则有时候会不生效)
     - <canvas id="universe"></canvas>
