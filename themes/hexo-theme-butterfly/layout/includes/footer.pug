@@ -6,5 +6,8 @@
       .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} By ${config.author}`
     else
       .copyright!= `&copy;${nowYear} By ${config.author}`
+  if theme.footer.copyright
+      .framework-info
+        a(href='https://beian.miit.gov.cn/')= '冀ICP备2021027944号 '
   if theme.footer.custom_text
     .footer_custom_text!=`${theme.footer.custom_text}`
