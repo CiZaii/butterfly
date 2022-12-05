@@ -795,8 +795,8 @@ mermaid:
   enable: false
   # built-in themes: default/forest/dark/neutral
   theme:
-    light: light
-    dark: default
+    light: default
+    dark: dark
 
 # Note (Bootstrap Callout)
 note:
