@@ -1,13 +1,14 @@
 ---
 title: spring-websocket实现聊天室功能
-date: 2022/9/8 22:48
-swiper: true # 是否将改文章放入轮播图中
-swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-57o7o1.jpg' # 该文章在轮播图中的图片，可以是本地目录下图片也可以是http://xxx图片
-cover: https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-57o7o1.jpg # 该文章图片，可以是本地目录下图片也可以是http://xxx图片
-categories: WebSocket # 分类
-tags: [spring] #标签
+date: '2022/9/8 22:48'
+swiper: true
+swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-57o7o1.jpg'
+cover: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-57o7o1.jpg'
+categories: WebSocket
+tags:
+  - spring
 top: true
-
+abbrlink: 9748f1b4
 ---
 
 # spring-websocket实现聊天室功能

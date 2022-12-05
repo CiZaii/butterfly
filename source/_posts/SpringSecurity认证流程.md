@@ -1,13 +1,14 @@
-
 ---
 title: SpringSecurity认证流程
-date: 2022/9/14 21:42
-swiper: true # 是否将改文章放入轮播图中
-swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-8o2v82.jpg' # 该文章在轮播图中的图片，可以是本地目录下图片也可以是http://xxx图片
-cover: https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-8o2v82.jpg # 该文章图片，可以是本地目录下图片也可以是http://xxx图片
-categories: 源码 # 分类
-tags: [ 安全框架] #标签
+date: '2022/9/14 21:42'
+swiper: true
+swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-8o2v82.jpg'
+cover: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-8o2v82.jpg'
+categories: 源码
+tags:
+  - 安全框架
 sticky: 1
+abbrlink: 7dde2051
 ---
 ## SpringSecurity认证流程
 

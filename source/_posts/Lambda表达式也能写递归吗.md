@@ -1,13 +1,16 @@
 ---
 title: Lambda表达式也能写递归吗
-date: 2022/8/26 23:12
-swiper: true # 是否将改文章放入轮播图中
-swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/b326474acb2e57f6b5dedf7fddf403a0.jpg' # 该文章在轮播图中的图片，可以是本地目录下图片也可以是http://xxx图片
-cover: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/b326474acb2e57f6b5dedf7fddf403a0.jpg' # 该文章图片，可以是本地目录下图片也可以是http://xxx图片
-categories: 开源 # 分类
-tags: [Steam ] #标签
+date: '2022/8/26 23:12'
+swiper: true
+swiperImg: >-
+  https://zangzang.oss-cn-beijing.aliyuncs.com/img/b326474acb2e57f6b5dedf7fddf403a0.jpg
+cover: >-
+  https://zangzang.oss-cn-beijing.aliyuncs.com/img/b326474acb2e57f6b5dedf7fddf403a0.jpg
+categories: 开源
+tags:
+  - Steam
 top: true
-#
+abbrlink: 43424dfc
 ---
 ##  🍑当你点进这篇文章的时候可能会有些疑问，什么Lambda表达式也能写递归？
 没错是这样的，我们在很多时候会用到递归树但是如果在数据库去写递归的SQL对数据库的压力就太大了，通常我们会一次性的都查出来在Java去进行递归的操作，我们这个操作要写好多代码而且思想基本都差不多，所以我们的Steam提供了这样一个方法toTree()，他可以定制的去进行集合转换为树的操作。

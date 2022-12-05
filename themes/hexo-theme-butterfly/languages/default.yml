@@ -3,7 +3,7 @@ footer:
   theme: Theme
 
 copy:
-  success: Copy successfully
+  success: 可以Copy,但是不要乱用哦
   error: Copy error
   noSupport: The browser does not support
 
@@ -30,7 +30,7 @@ post:
     author: Author
     link: Link
     copyright_notice: Copyright Notice
-    copyright_content: 'All articles in this blog are licensed under <a href="%s">%s</a> unless stating additionally.'
+    copyright_content: '著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。'
   recommend: Related Articles
   edit: Edited on
 
@@ -108,7 +108,7 @@ copy_copyright:
   author: Author
   link: Link
   source: Source
-  info: Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+  info: 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 Snackbar:
   chs_to_cht: Traditional Chinese Activated Manually

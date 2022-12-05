@@ -1,12 +1,14 @@
 ---
 title: SQ的Many优雅使用
-date: 2022/10/28 21:20
-swiper: true # 是否将改文章放入轮播图中
-swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/picGo/wallhaven-we8dv7.jpg' # 该文章在轮播图中的图片，可以是本地目录下图片也可以是http://xxx图片
-cover: https://zangzang.oss-cn-beijing.aliyuncs.com/picGo/wallhaven-we8dv7.jpg # 该文章图片，可以是本地目录下图片也可以是http://xxx图片
-categories: 技巧 # 分类
-tags: [stream-query ] #标签
+date: '2022/10/28 21:20'
+swiper: true
+swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/picGo/wallhaven-we8dv7.jpg'
+cover: 'https://zangzang.oss-cn-beijing.aliyuncs.com/picGo/wallhaven-we8dv7.jpg'
+categories: 技巧
+tags:
+  - stream-query
 top: false
+abbrlink: c0cbdbeb
 ---
 
 ## 使用实体类

@@ -1,13 +1,16 @@
 ---
 title: MVCC底层原理
-date: 2022/8/26 18:22
-swiper: true # 是否将改文章放入轮播图中
-swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/eeb95678d9e0d7ad4c7bd6aa6e503216.jpg' # 该文章在轮播图中的图片，可以是本地目录下图片也可以是http://xxx图片
-cover: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/eeb95678d9e0d7ad4c7bd6aa6e503216.jpg' # 该文章图片，可以是本地目录下图片也可以是http://xxx图片
-categories: MySQL # 分类
-tags: [锁] #标签
+date: '2022/8/26 18:22'
+swiper: true
+swiperImg: >-
+  https://zangzang.oss-cn-beijing.aliyuncs.com/img/eeb95678d9e0d7ad4c7bd6aa6e503216.jpg
+cover: >-
+  https://zangzang.oss-cn-beijing.aliyuncs.com/img/eeb95678d9e0d7ad4c7bd6aa6e503216.jpg
+categories: MySQL
+tags:
+  - 锁
 top: true
-
+abbrlink: 11dc0777
 ---
 
 ## MVCC底层原理

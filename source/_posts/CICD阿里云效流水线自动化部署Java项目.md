@@ -1,11 +1,12 @@
 ---
 title: CI/CD 阿里云效流水线自动化部署Java项目
-date: 2022/11/6 10:25
-updated: 2022/11/6 10:25
+date: '2022/11/6 10:25'
+updated: '2022/11/6 10:25'
 tags: CI/CD
 categories: 运维
 sticky: 1
-cover: https://zangzang.oss-cn-beijing.aliyuncs.com/img/002838-1667579318a9fc.jpg
+cover: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/002838-1667579318a9fc.jpg'
+abbrlink: 743e2aeb
 ---
 ### CI/CD 阿里云效流水线自动化部署Java项目
 

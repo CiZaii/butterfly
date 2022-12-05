@@ -73,7 +73,8 @@ katex:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: https://zangzang.oss-cn-beijing.aliyuncs.com/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221110120255.ico
+favicon:
+  img: https://zangzang.oss-cn-beijing.aliyuncs.com/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221110120255.jpg
 
 # Avatar (頭像)
 avatar:
@@ -833,7 +834,7 @@ aplayerInject:
 # position 彈窗位置
 # 可選 top-left / top-center / top-right / bottom-left / bottom-center / bottom-right
 snackbar:
-  enable: false
+  enable: true
   position: bottom-left
   bg_light: '#49b1f5' # The background color of Toast Notification in light mode
   bg_dark: '#1f1f1f' # The background color of Toast Notification in dark mode
@@ -902,8 +903,9 @@ inject:
     - <script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script>
     - <script defer data-pjax src="/js/cat.js"></script>
     - <script defer data-pjax src="/js/custom.js"></script>
-    - <script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script>
     - <script defer data-pjax src="/js/rightMenu.js"></script>
+    - <script defer data-pjax src="/js/bandev.js"></script>
+
 # CDN
 # Don't modify the following settings unless you know how they work
 # 非必要請不要修改

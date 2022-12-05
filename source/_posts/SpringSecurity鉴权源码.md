@@ -1,12 +1,16 @@
 ---
 title: SpringSecurity鉴权源码
-date: 2022/9/16 19:04
-swiper: true # 是否将改文章放入轮播图中
-swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/391c44cd9190562f87f20329d2eb371.jpg' # 该文章在轮播图中的图片，可以是本地目录下图片也可以是http://xxx图片
-cover: https://zangzang.oss-cn-beijing.aliyuncs.com/img/391c44cd9190562f87f20329d2eb371.jpg # 该文章图片，可以是本地目录下图片也可以是http://xxx图片
-categories: 源码 # 分类
-tags: [安全框架 ] #标签
+date: '2022/9/16 19:04'
+swiper: true
+swiperImg: >-
+  https://zangzang.oss-cn-beijing.aliyuncs.com/img/391c44cd9190562f87f20329d2eb371.jpg
+cover: >-
+  https://zangzang.oss-cn-beijing.aliyuncs.com/img/391c44cd9190562f87f20329d2eb371.jpg
+categories: 源码
+tags:
+  - 安全框架
 sticky: 1
+abbrlink: b43e2d04
 ---
 
 SpringSecurity鉴权源码

@@ -1,13 +1,14 @@
 ---
 title: mp分页的排序自动转换
-date: 2022/10/22 21:27
-swiper: true # 是否将改文章放入轮播图中
-swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-rr3y61.jpg' # 该文章在轮播图中的图片，可以是本地目录下图片也可以是http://xxx图片
-cover: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-rr3y61.jpg' # 该文章图片，可以是本地目录下图片也可以是http://xxx图片
-categories: MySQL # 分类
-tags: [stream-query ] #标签
+date: '2022/10/22 21:27'
+swiper: true
+swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-rr3y61.jpg'
+cover: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-rr3y61.jpg'
+categories: MySQL
+tags:
+  - stream-query
 top: false
-
+abbrlink: 7cc89ffc
 ---
 今天学到了一种很新的玩法
 我们在工作中经常会遇到这种表格
