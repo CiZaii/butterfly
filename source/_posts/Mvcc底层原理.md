@@ -9,7 +9,6 @@ cover: >-
 categories: MySQL
 tags:
   - 锁
-top: true
 abbrlink: 11dc0777
 ---
 

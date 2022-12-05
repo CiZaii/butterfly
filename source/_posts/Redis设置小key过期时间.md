@@ -9,7 +9,6 @@ cover: >-
 categories: 技巧
 tags:
   - Redis
-top: true
 abbrlink: 8486078e
 ---
 
