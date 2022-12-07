@@ -21,7 +21,7 @@
 /* 夜间模式菜单栏发光字 */
 [data-theme="dark"] #nav .site-page,
 [data-theme="dark"] #nav .menus_items .menus_item .menus_item_child li a {
-    text-shadow: 0 0 2px var(rgb(179, 71, 241)) !important;
+    text-shadow: 0 0 2px var(rgb(215, 156, 145)) !important;
 }
 
 /* 手机端适配 */
@@ -113,7 +113,7 @@
     width: 16px;
     height: 16px;
     /* 这里改变跟随的底色 */
-    background: rgb(57, 197, 187);
+    background: rgb(215, 156, 145);
     border-radius: 8px;
     opacity: 0.25;
     z-index: 10086;
@@ -248,7 +248,28 @@ div#archive {
     opacity: 0;
     transition: .3s ease-in
 }
-
+#page-header,
+#web_bg {
+    -webkit-animation: imgblur 4s 1 ease-in-out;
+    animation: imgblur 4s 1 ease-in-out;
+}
+@keyframes imgblur {
+    0% {
+        filter: blur(5px);
+    }
+    100% {
+        filter: blur(0px);
+    }
+}
+/*适配使用-webkit内核的浏览器 */
+@-webkit-keyframes imgblur {
+    0% {
+        -webkit-filter: blur(5px);
+    }
+    100% {
+        -webkit-filter: blur(0px);
+    }
+}
 .pace .pace-progress {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
