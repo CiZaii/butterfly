@@ -213,10 +213,10 @@ public final void acquire(int arg) {
         acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
         selfInterrupt();
 }
-// 里边包含了三个方法分别是tryAcquire(arg),addWaiter(Node.EXCLUSIVE),acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
+// 里边包含了三个方法分别是tryAcquire(), addWaiter(Node.EXCLUSIVE), acquireQueued()
 ```
 
-从第一个方法开始看,tryAcquire直接调用了nonfairTryAcquire，所以直接看nonfairTryAcquire
+从第一个方法开始看,tryAcquire是ReentrantLock自己重写的, 它里面调用了nonfairTryAcquire
 
 ```java
 /**
@@ -245,24 +245,26 @@ final boolean nonfairTryAcquire(int acquires) {
 
 这个方法总体来说就是通过cas的方式去尝试获得锁，获取不到的话也不会自旋而是进入addWaiter(Node.EXCLUSIVE)方法，我们来看一下
 
-1. 获得我们当前的线程然后拿到当前的状态，
+1. 获得当前的线程, 然后拿到当前锁的状态, 这个状态在不同同步器中有不同的含义, 在ReentrantLock中状态为0代表锁是空闲的, 1代表有线程持有锁, 大于1代表锁被重入的次数(1其实也可以看作第一次重入)
 
-2. 如果当前资源的状态为0的话使用cas的方法将状态从0设为1，如果获取到的话将当前拥有锁的线程设置为当前的线程
+2. 如果当前资源的状态为0, 使用cas尝试将状态从0设为1，如果成功, 标记当前线程持有锁
 
-3. 如果不是的话会再去判断当前的线程是不是和我们资源的拥有者线程是一个线程如果是的话会将当前的state的值+1并且重新设置到其中，
+3. 如果不是的话, 会再去判断当前线程是不是持有锁的线程, 如果是的话, 会将当前的state的值加上申请的资源值, 意味着锁被重入
 
 ```java
    if (nextc < 0) // overflow
        throw new Error("Maximum lock count exceeded");
-   // 我们都知道int类型的数据取值范围是-32768~32767
-   // 所以在我们达到阈值的时候回抛出异常
+   /*
+    * 在重入过程中, 如果资源数量由正变负, 代表资源溢出了, 毕竟初始值是0, 获取资源时也是不断累加, 不会有人尝试获取负数的资源, 那没有意义. 
+    * 我们都知道int类型的数据取值范围是[-2147483648, 2147483647]" 所以一般是不可能触发这个Error的
+    * */
 ```
 
 >如果都不满足返回false
->上面我说的是理想状态下，如果不是理想状态下呢，我们可以看一下，假如线程A进来的时候判断了状态码为0,可是此时cas按理说应该是成功的,可是在这个时候线程B来的时候状态码也为0，而且线程B的cas成功了，那么我们A就失败了此时再进行如下的判断这里我就省略了，他如果是递归调用可能会进入else if 分支可是如果不是的话就直接返回false
+>上面我说的是理想状态下，如果是多线程竞争状态下呢，我们可以看一下, 假如线程A进来的时候, 状态码为0, 此时cas按理说应该是成功的, 可是在这个时候线程B来了, 获得的状态码也为0，而且线程B的cas先一步成功了，那么线程A获取锁就失败了, 又由于A和B是两个不同的线程, 所以线程A调用nonfairTryAcquire()的结果是false, 继续往后执行
 
 
-下面我们回到acquire方法如果tryAcquire方法返回了true说明设置成功了那么我们直接返回，执行代码就行，如果返回了false我们就会执行后边的方法
+下面我们回到acquire方法, 如果tryAcquire方法返回了true, 说明已经成功获取到锁, 那么我们直接返回，继续往后执行代码就行，如果返回了false, 我们就会执行后边的方法addWaiter和acquireQueued方法
 
 ```java
 if (!tryAcquire(arg) &&
@@ -294,11 +296,10 @@ private Node addWaiter(Node mode) {
 }
 ```
 
-我们来一行一行的看
+addWaiter方法是给当前线程创建一个节点, 并添加到同步队列中, 排队等待机会获取锁, 参数Node.EXCLUSIVE代表当前线程希望以独占模式获取锁
 
-首先会创建一个节点，节点值有当前线程信息和当前使用的模式
 
-然后获得尾节点判断尾节点是不是为null，我们直接看为null的情况下，因为里边有一段逻辑和不为null的时候是一样的所以这里直接讲enq(node)里边的逻辑
+然后获得尾节点, 如果尾节点已经创建，则使用尾插法将节点入队, 如果没有则调用enq方法入队, 实际上enq就是多了一步初始化头节点和尾节点的处理, 入队依然是使用相同的尾插法, 我们直接讲enq(node)里边的逻辑
 
 #### enq(node)
 
@@ -320,7 +321,7 @@ private Node enq(final Node node) {
 }
 ```
 
-这个里边的逻辑其实也挺简单的我们看一下啊这是个死循环相当于一个自旋，
+这个里边的逻辑其实也挺简单的, 我们看一下, 首先是一个死循环, 这个死循环相当于一个自旋
 
 >理想状态
 >
@@ -334,13 +335,12 @@ private Node enq(final Node node) {
 >
 >不理想状态(并发)
 >
->在不理想状态的时候，模拟一下场景加入我们当前的线程A进入了for循环也判断了当前的头节点为null，但是他在执行compareAndSetHead(new Node())的时候刚new出自己的节点来之后，就被线程B抢先将队列的头节点设置null，然后队列的尾节点为线程B的节点数据成了线程B的数据，那么此时线程A去cas设置头节点就会失败，此时线程A会重新执行if判断此时的头节点已经有了，我们就会将B线程的数据节点的前置节点设置成当前的队尾节点也就是线程A节点然后通过cas的方式去将队列的尾节点设置为线程B的节点数据，并且将队尾节点(线程A节点)的后置节点设置为线程B节点，最终返回
+>在不理想状态的时候，模拟一下场景, 假如线程A进入了for循环, 判断了当前的尾节点为null，但是他在执行compareAndSetHead(new Node())的时候, 刚new出自己的节点来之后，就被线程B抢先将队列的头节点设置为自己new的节点，此时队列的尾节点就是线程B的节点数据，那么此时线程A去cas设置头节点就会失败，然后线程A进入下一轮循环, 此时的尾节点已经存在，我们就会使用尾插法将线程A设置为新的尾节点，最终返回旧的尾节点(这是因为AQS是前驱节点负责唤醒当前节点)
 
+>注意：enq()方法会返回旧的尾节点，但是addWaiter是返回当前线程的节点
 ### acquireQueued(addWaiter(Node.EXCLUSIVE), arg)
 
-上边讲完了addWaiter下面讲一下acquireQueued方法，上一个方法将我们的节点添加到了同步队列中之后会将其返回,然后进入当前的acquireQueued方法中我们来点进去看一下
-
-![image-20221214105350190](https://zangzang.oss-cn-beijing.aliyuncs.com/img/image-20221214105350190.png)
+上边讲完了addWaiter下面讲一下acquireQueued方法，上一个方法将当前线程的节点添加到同步队列之后, 会将其前驱节点返回, acquireQueued方法会尝试将该前驱节点设置为新的头节点, 以此来唤醒当前线程的节点, 我们来看一下
 
 ```java
 final boolean acquireQueued(final Node node, int arg) {
@@ -374,7 +374,7 @@ final boolean acquireQueued(final Node node, int arg) {
 
 接下来我们看一下for循环里边的逻辑
 
->1. 首先会拿到当前节点的前置节点判断当前的前置节点是不是头节点，如果是头节点的话去重新抢占锁，注意这里是只有他的的前置节点是头节点的时候才有资格再次尝试去获得锁。
+>1. 首先会拿到当前节点的前置节点, 如果前置节点是头节点的话, 代表当前节点已经是队列中第一个待执行的节点, 此时可以再次尝试获取锁, 无需任何等待(这里再次尝试获得锁的原因是，可能在添加节点到队列的过程中，拥有当前锁线程已经被释放)
     >
     >   1. 我们先看获取锁成功的时候，如果获取锁成功的话我们就会将当前的节点设置为头节点，我们来看一下这个设置头节点的代码是怎么做的。
            >
@@ -390,10 +390,10 @@ final boolean acquireQueued(final Node node, int arg) {
 >      ```
 >   2. 接下来将我们的前驱节点的后继节点设为null
        >
-       > ```markdown
+>     ```java
 >      这里的意思也就是，因为我们上一步已经将当前节点的前置节点设为了null所以现在已经不需要之前的头节点了，所以我们需要将原始头节点的的后继节点设为null，此时头节点就没有任何的引用了我们的GC会将他进行回收
 >      ```
->
+> 
 >   3. 然后将是否获取失败标志位设为false，然后返回false
 >
 >2. 我们现在看了当前节点的前置节点是头节点并且抢占锁成功的状态，我们接下来看一下如果当前节点不是头节点或者是头节点但是抢占锁失败的情况下是如何处理的，也就是
@@ -465,7 +465,8 @@ final boolean acquireQueued(final Node node, int arg) {
 
 ### cancelAcquire(node)
 
-这个方法简单来说就是取消正在进行的获取尝试。
+这个方法的作用是在当前节点再次获取锁失败后，判断当前线程是否需要挂起等待,  此时, 当前节点确实是队列中下一个执行的节点, 但是前面的节点还没释放锁, 所以当前线程可能需要挂起自己, 等待唤醒, 该方法返回true则挂起当前线程, false则返回acquireQueued方法继续自旋.
+我们可以看一下详细的代码，因为我们使用的非公平独占锁来进行讲解, 所以他的waitStatus只可能为-1，1，还有初始值0，注意该方法有两个参数，参数一是我们的前驱节点，参数二是我们的当前的节点，当前节点是我们队列中的新节点, 获得前驱节点的waitStatus值肯定是0，直接执行compareAndSetWaitStatus(pred, ws, Node.SIGNAL);将前驱节点的状态值改为Node.SIGNAL，也就是-1，代表着, 当前线程已经将唤醒自己的任务托付给了前驱节点(这里我比较疑惑, 为什么要将等待状态放到前驱节点上, 放自己身上不行吗), 然后返回false, 此时就不去执行parkAndCheckInterrupt()方法了，而是重新进入for循环，此时如果还不满足第一个if的条件的话还是进入我们的, 第二次循环中, 如果再次进入shouldParkAfterFailedAcquire, 此时前驱节点的等待状态就是Node.SIGNAL, 所以直接返回true, 并执行parkAndCheckInterrupt(), 将当前线程挂起
 
 ```java
 private void cancelAcquire(Node node) {
